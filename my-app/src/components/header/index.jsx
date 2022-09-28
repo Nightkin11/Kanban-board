@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Button from "../button";
-import ArrowButton from "../arrow-button";
+import AvatarButton from "../avatar-button/AvatarButton";
+import AvatarArrowButton from "../avatar-arrow-button/AvatarArrowButton";
 import Container from "../Container";
 
 const HeaderWrapper = styled.div`
@@ -28,8 +28,8 @@ const Header = (prop) => {
 			<Container>
 				<LogoWrapper href='/'>{prop.logo}</LogoWrapper>
 				<ProfileWrapper>
-					<Button />
-					<ArrowButton />
+					<AvatarButton />
+					<AvatarArrowButton />
 				</ProfileWrapper>
 			</Container>
 		</HeaderWrapper>

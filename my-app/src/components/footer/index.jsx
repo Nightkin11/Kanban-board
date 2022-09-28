@@ -4,14 +4,12 @@ import Flex from "../flex";
 import Container from "../Container";
 
 const FooterWrapper = styled.div`
-position: absolute;
-left: 0;
-bottom: 0;
 width: 100%;
 height: 55px;
 background-color: #0067A3;
 display: flex;
 align-items: center;
+flex: 0 0 auto;
 *{
 	color: #fff;
 }

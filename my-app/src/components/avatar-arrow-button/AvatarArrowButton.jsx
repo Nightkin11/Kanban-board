@@ -6,7 +6,7 @@ const ArrowWrapper = styled.img`
 cursor: pointer;
 `
 
-const ArrowButton = () => {
+const AvatarArrowButton = () => {
 	const handleClick = () => {
 		console.log('ok')
 	}
@@ -15,4 +15,4 @@ const ArrowButton = () => {
 	)
 }
 
-export default ArrowButton;
+export default AvatarArrowButton;

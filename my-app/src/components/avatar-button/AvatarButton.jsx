@@ -14,7 +14,7 @@ const StyledButton = styled.button`
 	cursor: pointer;
 `
 
-const Button = () => {
+const AvatarButton = () => {
 	const handleClick = () => {
 		console.log('ok')
 	}
@@ -24,4 +24,4 @@ const Button = () => {
 	)
 }
 
-export default Button;
+export default AvatarButton;

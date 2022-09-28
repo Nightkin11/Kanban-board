@@ -1,6 +1,7 @@
 import { useState } from "react";
 import React from "react";
 import styled from "styled-components";
+import Button2 from "../button2/Button2";
 
 const StyledCardInput = styled.input`
 	background: #FFFFFF;
@@ -11,20 +12,11 @@ const StyledCardInput = styled.input`
 	width: 100%;
 `
 
-const StyledCardInputButton = styled.button`
-	background-color: #0079BF;
-	color: #FFF;
-	width: 102px;
-	height: 28px;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-`
-
 const AddCardForm = React.forwardRef((props, ref) => {
-	const {addNewTask} = props
+	const {addNewTask, setFormVisible, notify, notify2} = props
 	const [values, setValues] = useState({
-		title: ''
+		title: '',
+		placeholder: 'Enter task',
 	})
 
 	const handleChange = (e) => {
@@ -36,14 +28,20 @@ const AddCardForm = React.forwardRef((props, ref) => {
 		e.preventDefault()
 		if (values.title){
 			addNewTask(values.title)
+			setFormVisible(false)
+			notify("Task is added")
+		} 
+		if (values.title === '') {
+			setFormVisible(false)
+			notify("Task is not added. Field is required")
+			notify2("Task is not added. Field is required")
 		}
-		//TODO: обработать пустое значение title
 	}
 
 	return (
 		<form onSubmit={handleSubmit}>
-			<StyledCardInput id='taskTitle' name='title' type='text' placeholder="Enter task" ref={ref} value={values.title} onChange={handleChange} />
-			<StyledCardInputButton type='submit'>Submit</StyledCardInputButton>
+			<StyledCardInput id='taskTitle' name='title' type='text' placeholder={values.placeholder} ref={ref} value={values.title} onChange={handleChange} />
+			<Button2 type='submit' text='Submit' />
 		</form>
 	)
 })

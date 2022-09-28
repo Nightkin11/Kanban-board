@@ -1,8 +1,8 @@
-import uniqid from 'uniqid';
 import React from "react";
 import styled from "styled-components";
 import { LIST_TYPES, LIST_TITLES } from "../../config";
 import List from "../list/List";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Container = styled.div`
@@ -17,32 +17,33 @@ const Container = styled.div`
 
 
 const Board = props => {
-	const {tasks, setTasks} = props
+	const {tasks, addNewTask, moveTask, notify} = props
 
-	const addNewTask = (title) => {
-		const newTask = {
-			id: uniqid(),
-			title: title,
-			description: '',
-			created: new Date().toISOString(),
-			status: LIST_TYPES.BACKLOG,
-		}
-		setTasks([...tasks], newTask)
-	}
+
+	const backlogTasks = tasks.filter(task => task.status ==='backlog')
+	const readyTasks = tasks.filter(task => task.status ==='ready')
+	const inProgressTasks = tasks.filter(task => task.status ==='inProgress')
+	const finishedTasks = tasks.filter(task => task.status ==='finished')
 
 	return (
 		<Container >
 			{Object.values(LIST_TYPES).map(type => {
 				const listTasks = tasks.filter(task => task.status === type)
 				return (
-					<List key={type} type={type} title={LIST_TITLES[type]} tasks={listTasks} addNewTask={addNewTask} />
+					<List key={type} type={type} 
+					title={LIST_TITLES[type]}
+					backlogTasks={backlogTasks}
+					readyTasks={readyTasks} 
+					inProgressTasks={inProgressTasks}
+					finishedTasks={finishedTasks}
+					tasks={listTasks} 
+					addNewTask={addNewTask} 
+					moveTask={moveTask}
+					notify={notify} />
 				)
 			})}
 		</Container>
-
 	)
 }
-
-
 
 export default Board;
