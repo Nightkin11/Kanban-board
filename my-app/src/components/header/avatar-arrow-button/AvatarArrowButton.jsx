@@ -4,15 +4,12 @@ import Arrow from './arrow.svg';
 
 const ArrowWrapper = styled.img`
 cursor: pointer;
+transform: ${props => props.transform || 'none'};
 `
 
-const AvatarArrowButton = () => {
-	const handleClick = () => {
-		console.log('ok')
-	}
+const AvatarArrowButton = (props) => {
 	return (
-		<ArrowWrapper onClick={handleClick} src={Arrow} alt="avatar" />
+		<ArrowWrapper {...props} onClick={props.onClick} src={Arrow} alt="avatar" />
 	)
 }
-
 export default AvatarArrowButton;

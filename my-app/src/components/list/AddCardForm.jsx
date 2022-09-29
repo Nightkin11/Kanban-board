@@ -1,7 +1,7 @@
 import { useState } from "react";
 import React from "react";
 import styled from "styled-components";
-import Button2 from "../button2/Button2";
+import Button2 from "./button2/Button2";
 
 const StyledCardInput = styled.input`
 	background: #FFFFFF;
