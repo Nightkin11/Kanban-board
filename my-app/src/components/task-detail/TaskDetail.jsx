@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
 import { useParams } from 'react-router-dom';
-import Flex from "../flex";
+import Flex from "../Flex";
 import {LIST_TITLES, LIST_COLORS } from "../../config";
 import Close from './close.svg';
 import { formatDate } from "../../utils";
@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 const StyledTaskDetail = styled.div`
 	max-width: 1250px;
 	margin: 0 auto;
-	background-color: #FFF;
+	background-color: #EBECF0;
 	border-radius: 5px;
 	padding: 1rem 1rem;
 	margin-top: 1rem;

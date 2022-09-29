@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
-import Button from "../Button/Button";
+import Button from "./button/Button";
 import {ListWrapper, ListTitle, TaskCard} from "./ListWrapper";
 import {LIST_TYPES, LIST_COLORS } from "../../config";
 import AddCardForm from "./AddCardForm";
@@ -15,11 +15,12 @@ const List = props => {
 	const [notify2, setNotify] = useState('')
 	const inputRef = useRef(null)
 
-	const handleClick = () => {
+	const handleClickForm = () => {
 		setFormVisible(!isFormVisible)
+		setNotify('')
 	}
 
-	const handleClick2 = () => {
+	const handleClickSelector = () => {
 		setSelectorVisible(!isSelectorVisible)
 	}
 
@@ -53,25 +54,25 @@ const List = props => {
 				<Notify2 notify2={notify2} />
 			)}
 			{type === LIST_TYPES.BACKLOG && !isFormVisible &&(
-				<Button onClick={handleClick} text='+Add task' />
+				<Button onClick={handleClickForm} text='+Add task' />
 			)}
 			{type === LIST_TYPES.READY && isSelectorVisible && (
 				<AddCardSelector preListTasks={backlogTasks} moveTask={moveTask} setSelectorVisible={setSelectorVisible} notify={notify} />
 			)}
 			{type === LIST_TYPES.READY && !isSelectorVisible &&(
-				<Button onClick={handleClick2} disabled={isBtnDisabled1} text='+Add task' />
+				<Button onClick={handleClickSelector} disabled={isBtnDisabled1} text='+Add task' />
 			)}
 			{type === LIST_TYPES.IN_PROGRESS && isSelectorVisible && (
 				<AddCardSelector preListTasks={readyTasks} moveTask={moveTask} setSelectorVisible={setSelectorVisible} notify={notify} />
 			)}
 			{type === LIST_TYPES.IN_PROGRESS && !isSelectorVisible &&(
-				<Button onClick={handleClick2} disabled={isBtnDisabled2} text='+Add task' />
+				<Button onClick={handleClickSelector} disabled={isBtnDisabled2} text='+Add task' />
 			)}
 			{type === LIST_TYPES.FINISHED && isSelectorVisible && (
 				<AddCardSelector preListTasks={inProgressTasks} moveTask={moveTask} setSelectorVisible={setSelectorVisible} notify={notify} />
 			)}
 			{type === LIST_TYPES.FINISHED && !isSelectorVisible &&(
-				<Button onClick={handleClick2} disabled={isBtnDisabled3} text='+Add task' />
+				<Button onClick={handleClickSelector} disabled={isBtnDisabled3} text='+Add task' />
 			)}
 		</ListWrapper>
 	)

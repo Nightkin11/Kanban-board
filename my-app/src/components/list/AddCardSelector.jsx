@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
-import Button2 from "../button2/Button2";
+import Button2 from "./button2/Button2";
 
 
 const StyledCardSelector = styled.select`

@@ -14,12 +14,9 @@ const StyledButton = styled.button`
 	cursor: pointer;
 `
 
-const AvatarButton = () => {
-	const handleClick = () => {
-		console.log('ok')
-	}
+const AvatarButton = (props) => {
 	return (
-		<StyledButton onClick={handleClick}><img src={UserAvatar} alt="avatar" />
+		<StyledButton onClick={props.onClick}><img src={UserAvatar} alt="avatar" />
 		</StyledButton>
 	)
 }
