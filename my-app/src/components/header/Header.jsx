@@ -28,6 +28,9 @@ const ProfileWrapper = styled.div`
 	position: relative;
 	display: flex;
 	margin-left: auto;
+@media (max-width: 1250px) {
+	margin-right: 12px;
+}
 `
 
 const Header = (prop) => {
