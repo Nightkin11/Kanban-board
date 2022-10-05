@@ -14,9 +14,9 @@ const LIST_TITLES = {
 
 const LIST_COLORS = {
 	[LIST_TYPES.BACKLOG]: '#ffffff',
-	[LIST_TYPES.READY]: '#b95959',
-	[LIST_TYPES.IN_PROGRESS]: '#4b69b1',
-	[LIST_TYPES.FINISHED]: '#a0b959',
+	[LIST_TYPES.READY]: '#ffffff',
+	[LIST_TYPES.IN_PROGRESS]: '#ffffff',
+	[LIST_TYPES.FINISHED]: '#ffffff',
 }
 
 export { LIST_TYPES, LIST_TITLES, LIST_COLORS }

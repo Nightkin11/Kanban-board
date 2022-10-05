@@ -30,6 +30,7 @@ const TaskStatus = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	display: none;
 `
 
 const TaskClose = styled.img`
@@ -39,6 +40,7 @@ const TaskClose = styled.img`
 const TaskCreated = styled.p`
 	font-size: 14px;
 	color: gray;
+	display: none;
 `
 
 
