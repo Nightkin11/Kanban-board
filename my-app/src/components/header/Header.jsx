@@ -6,9 +6,10 @@ import Container from "../Container";
 import { useState } from "react";
 import Dropdown from "./Dropdown";
 import useOnclickOutside from "react-cool-onclickoutside";
+import Flex from "../Flex";
 
 
-const HeaderWrapper = styled.div`
+const StyledHeader = styled.header`
 height: 55px;
 background-color: #0067A3;
 display: flex;
@@ -19,6 +20,11 @@ const LogoWrapper = styled.a`
 color: #FFFFFF;
 font-size: 28px;
 text-decoration: none;
+margin-left: 1rem;
+
+@media (max-width: 1250px) {
+	margin-left: 1rem;
+}
 @media (max-width: 768px) {
 	display: none;
 }
@@ -29,7 +35,7 @@ const ProfileWrapper = styled.div`
 	display: flex;
 	margin-left: auto;
 @media (max-width: 1250px) {
-	margin-right: 12px;
+	margin-right: 1rem;
 }
 `
 
@@ -58,16 +64,18 @@ const Header = (prop) => {
 	}
 
 	return (
-		<HeaderWrapper>
-			<Container>
-				<LogoWrapper href='/'>{prop.logo}</LogoWrapper>
-				<ProfileWrapper ref={ref} onClick={handleToggle} >
-					<AvatarButton />
-					<AvatarArrowButton transform={rotate()} />
-					{toggleDropdown && <Dropdown onClick={closeToggleDropdown} />}
-				</ProfileWrapper>
+		<StyledHeader>
+			<Container width='1250px'>
+				<Flex justify='space-between'>
+					<LogoWrapper href='/'>{prop.logo}</LogoWrapper>
+					<ProfileWrapper ref={ref} onClick={handleToggle} >
+						<AvatarButton />
+						<AvatarArrowButton transform={rotate()} />
+						{toggleDropdown && <Dropdown onClick={closeToggleDropdown} />}
+					</ProfileWrapper>
+				</Flex>
 			</Container>
-		</HeaderWrapper>
+		</StyledHeader>
 	)
 }
 

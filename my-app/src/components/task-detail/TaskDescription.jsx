@@ -2,9 +2,7 @@ import React from 'react';
 import { EditTextarea } from 'react-edit-text';
 import 'react-edit-text/dist/index.css';
 
-
-
-export default function TaskDescription(props) {
+const TaskDescription = (props) => {
   return (
     <div>
       <EditTextarea 
@@ -20,3 +18,5 @@ export default function TaskDescription(props) {
     </div>
   );
 }
+
+export default TaskDescription;

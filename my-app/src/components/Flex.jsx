@@ -8,6 +8,7 @@ const StyledFlex = styled.div`
 	justify-content:  ${props => props.justify || 'stretch'};
 	margin:  ${({margin}) => margin || '0'};
 	color:  ${({color}) => color || 'black'};
+	width: ${props => props.width || 'auto'};
 `
 
 const Flex = (props) => {

@@ -16,6 +16,10 @@ flex: 0 0 auto;
 `
 const AuthorWrapper = styled.div`
 	display: flex;
+	margin-right: 1rem;
+@media (max-width: 1250px) {
+	margin-right: 1rem;
+}
 
 @media (max-width: 768px) {
 	display: none;
@@ -24,6 +28,9 @@ const AuthorWrapper = styled.div`
 
 const TasksWrapper = styled.div`
 	display: flex;
+@media (max-width: 1250px) {
+	margin-left: 1rem;
+}
 @media (max-width: 768px) {
 	margin: 0 auto;
 }
@@ -49,14 +56,16 @@ const Footer = (props) => {
 		)}
 	return (
 		<FooterWrapper>
-			<Container justify='space-between'>
-				<TasksWrapper>
-					<ActiveTasks />
-					<FinishedTasks />
-				</TasksWrapper>
-				<AuthorWrapper>
-					Kanban board by Max Efimov, 2022
-				</AuthorWrapper>
+			<Container width='1250px'>
+				<Flex justify='space-between'>
+					<TasksWrapper>
+						<ActiveTasks />
+						<FinishedTasks />
+					</TasksWrapper>
+					<AuthorWrapper>
+						Kanban board by Max Efimov, 2022
+					</AuthorWrapper>
+				</Flex>
 			</Container>
 		</FooterWrapper>
 	)

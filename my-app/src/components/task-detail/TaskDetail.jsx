@@ -7,15 +7,17 @@ import Close from './close.svg';
 import { formatDate } from "../../utils";
 import TaskDescription from "./TaskDescription";
 import { Link } from 'react-router-dom';
+import Container from '../Container';
 
 
 const StyledTaskDetail = styled.div`
-	max-width: 1250px;
-	margin: 0 auto;
 	background-color: #EBECF0;
 	border-radius: 5px;
 	padding: 1rem 1rem;
-	margin-top: 1rem;
+	margin: 2rem 0 2rem 0;
+@media (max-width: 1250px) {
+	margin: 2rem 1rem 2rem 1rem;
+}
 `
 
 const TaskTitle = styled.h2`
@@ -62,23 +64,23 @@ const TaskDetail = (props) => {
 
 
 	return (
-		<StyledTaskDetail>
-			<Flex align='center' justify='space-between'>
-				<Flex align='center' justify='space-between' style={{width: '400px'}}>
-					<TaskTitle>{task.title}</TaskTitle>
-					<TaskStatus color={LIST_COLORS[task.status]}>{LIST_TITLES[task.status]}</TaskStatus>
+		<Container>
+			<StyledTaskDetail>
+				<Flex align='center' justify='space-between'>
+					<Flex align='center' justify='space-between' style={{width: '300px'}}>
+						<TaskTitle>{task.title}</TaskTitle>
+						<TaskStatus color={LIST_COLORS[task.status]}>{LIST_TITLES[task.status]}</TaskStatus>
+					</Flex>
+					<Link to={'/'}><TaskClose src={Close} /></Link>
 				</Flex>
-				<Link to={'/'}><TaskClose src={Close} /></Link>
-			</Flex>
-			<Flex>
-				<TaskCreated>{formatDate(task.created)}</TaskCreated>
-			</Flex>
-			<Flex direction='column'>
-				<TaskDescription value={description} onChange={handleChange} onSave={handleSave} >
-				</TaskDescription>
-			</Flex>
-
-		</StyledTaskDetail>
+				<Flex>
+					<TaskCreated>{formatDate(task.created)}</TaskCreated>
+				</Flex>
+				<Flex direction='column'>
+					<TaskDescription value={description} onChange={handleChange} onSave={handleSave} />
+				</Flex>
+			</StyledTaskDetail>
+		</Container>
 		)
 
 };
