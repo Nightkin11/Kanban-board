@@ -6,6 +6,7 @@ const Wrapper = styled.div`
 	position: absolute;
 	top: 56px;
 	left: -74px;
+	z-index: 2;
 `
 
 const StyledDropdown = styled.div`
